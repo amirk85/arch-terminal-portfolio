@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arch Linux Terminal Portfolio Template 🚀
 
-## Getting Started
+Highly customizable, terminal-themed portfolio inspired by the **Arch Linux** aesthetic. Built with **Next.js 16**, **Tailwind CSS 4**, and **React 19**, this template offers a unique and nostalgic developer experience.
 
-First, run the development server:
+![Demo Placeholder](https://via.placeholder.com/800x450.png?text=Arch+Linux+Terminal+Portfolio+Demo)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **💻 Interactive Terminal**: Fully functional terminal interface with a growing list of commands.
+- **🔍 Smart Autocomplete**: Real-time command suggestions and `Tab` key auto-completion.
+- **🎨 Multi-Theme System**: Switch between **Gruvbox**, **Nord**, **Solarized**, **Matrix**, and **Catppuccin** with a single button or command.
+- **🖼️ Premium Wallpaper**: Integrated high-quality Arch-themed background with dynamic overlays.
+- **📱 Responsive Design**: Optimized for both desktop and mobile terminal experiences.
+- **⚡ Performance First**: Zero-latency theme switching and ultra-lightweight components.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Core**: [React 19](https://react.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **State Management**: React Context API
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js 18.x or later
+- npm / pnpm / yarn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. **Clone the repository:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/amirk85/arch-portfolio.git
+   cd arch-portfolio
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Install dependencies:**
+
+   ```bash
+   pnpm install
+   # or
+   npm install
+   ```
+
+3. **Run the development server:**
+
+   ```bash
+   pnpm dev
+   ```
+
+4. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see your portfolio in action.
+
+## 📝 Configuration
+
+All portfolio data (projects, education, skills, social links) is centrally managed in:
+`src/config/portfolio.ts`
+
+To change the available themes or colors, modify:
+`src/config/themes.ts`
+`src/app/globals.css`
+
+## 🤝 Support & Contribution
+
+This is a **free-to-use template** for the developer community. If you find it useful:
+
+1.  🌟 **Give it a Star**: It helps more people discover this project.
+2.  🏷️ **Give Credit**: If you use this template for your own portfolio, please keep the credit link in the footer or mention this repository in your README.
+
+Contributions are always welcome! Feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+_Made with ❤️ by Amir for the Linux community._
