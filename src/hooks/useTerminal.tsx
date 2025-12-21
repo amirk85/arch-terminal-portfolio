@@ -200,7 +200,7 @@ export function useTerminal(setTheme: (theme: ThemeName) => void) {
                   { name: "neofetch", desc: "System info" },
                   {
                     name: "theme",
-                    desc: "Change theme [gruvbox, nord, solarized, matrix]",
+                    desc: "Change theme [gruvbox, nord, solarized, matrix, catppuccin]",
                   },
                   { name: "clear", desc: "Clear terminal" },
                 ].map((c) => (

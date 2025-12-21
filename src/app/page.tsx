@@ -1,21 +1,32 @@
+"use client";
+
+import Image from "next/image";
 import Terminal from "@/components/Terminal";
 import StatusBar from "@/components/StatusBar";
-import Image from "next/image";
+import { useTheme } from "@/components/ThemeProvider";
+import { themes } from "@/config/themes";
 
 export default function Home() {
+  const { theme } = useTheme();
+
+  const activeTheme = themes[theme] || themes.gruvbox;
+
   return (
     <div className="h-screen flex flex-col font-mono relative p-4 gap-4 overflow-hidden text-fg">
-      {/* Wallpaper Background */}
-      <div className="fixed inset-0 -z-10 bg-bg transition-colors duration-500">
+      <div className="fixed inset-0 -z-20 pointer-events-none">
         <Image
-          src="/assets/arch_wallpaper.png"
-          alt="Wallpaper"
+          src="/arch_wallpaper.jpg"
+          alt="Arch Linux Wallpaper"
           fill
-          className="object-cover opacity-25 brightness-[0.4] grayscale-30 pointer-events-none"
           priority
+          className="object-cover transition-opacity duration-1000"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-black/20 to-black/40" />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
       </div>
+      <div
+        className="fixed inset-0 -z-30 opacity-20 pointer-events-none transition-colors duration-700"
+        style={{ backgroundColor: activeTheme.bg }}
+      />
 
       <Terminal />
       <StatusBar />

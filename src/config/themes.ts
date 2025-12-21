@@ -79,6 +79,26 @@ export const themes = {
     darkGray: "#003b00",
     orange: "#00ff41",
   },
+  catppuccin: {
+    bg: "#1e1e2e",
+    bgHard: "#11111b",
+    fg: "#cdd6f4",
+    red: "#f38ba8",
+    green: "#a6e3a1",
+    yellow: "#f9e2af",
+    blue: "#89b4fa",
+    purple: "#cba6f7",
+    aqua: "#89dceb",
+    gray: "#7f849c",
+    brightRed: "#f38ba8",
+    brightGreen: "#a6e3a1",
+    brightYellow: "#f9e2af",
+    brightBlue: "#89b4fa",
+    brightPurple: "#cba6f7",
+    brightAqua: "#89dceb",
+    darkGray: "#313244",
+    orange: "#fab387",
+  },
 };
 
 export type ThemeName = keyof typeof themes;

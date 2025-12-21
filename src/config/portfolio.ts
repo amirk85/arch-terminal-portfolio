@@ -5,7 +5,8 @@ export const portfolioData = {
     machine: "amir-portfolio",
     title: "Software Engineer",
     location: "Mumbai, India",
-    description: "I specialize in Full Stack development, building scalable architectures, and integrating LLMs into enterprise applications. Currently focused on Next.js, Python/Django, and Generative AI solutions.",
+    description:
+      "I specialize in Full Stack development, building scalable architectures, and integrating LLMs into enterprise applications. Currently focused on Next.js, Python/Django, and Generative AI solutions.",
   },
   experience: [
     {
@@ -38,7 +39,14 @@ export const portfolioData = {
     },
   ],
   skills: {
-    frontend: ["Next.js", "React", "TypeScript", "Redux", "Zustand", "Tailwind"],
+    frontend: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Redux",
+      "Zustand",
+      "Tailwind",
+    ],
     backend: ["Node.js", "Express", "Python", "FastAPI", "Django", "REST API"],
     database: ["SQL", "NoSQL", "Docker", "Git", "Linux"],
     design: ["GenAI", "LLM Integration", "Figma"],
@@ -46,25 +54,32 @@ export const portfolioData = {
   projects: [
     {
       name: "Abeer Aromatics",
-      description: "E-commerce platform for concentrated perfume oils. Features English/Arabic support, B2B quotes, and Next.js frontend.",
+      description:
+        "E-commerce platform for concentrated perfume oils. Features English/Arabic support, B2B quotes, and Next.js frontend.",
       url: "#",
     },
     {
       name: "FlowTask",
-      description: "SaaS template with AI-driven project management UI. Production-ready frontend built with Next.js.",
+      description:
+        "SaaS template with AI-driven project management UI. Production-ready frontend built with Next.js.",
       url: "#",
     },
   ],
   education: [
     {
-      institution: "BAMU University",
+      institution: "BAMU University | Aurangabad(MH)",
       period: "2016 - 2019",
       degree: "Bachelor of Commerce - 65.86%",
     },
     {
-      institution: "Deogiri College",
+      institution: "Deogiri College | Aurangabad(MH)",
       period: "2014 - 2016",
       degree: "HSC - 79.38%",
+    },
+    {
+      institution: "AMC High School | Aurangabad(MH)",
+      period: "2013 - 2014",
+      degree: "SSC - 81.40%",
     },
   ],
   contact: {
