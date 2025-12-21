@@ -2,7 +2,7 @@
 
 Highly customizable, terminal-themed portfolio inspired by the **Arch Linux** aesthetic. Built with **Next.js 16**, **Tailwind CSS 4**, and **React 19**, this template offers a unique and nostalgic developer experience.
 
-![Demo Placeholder](https://via.placeholder.com/800x450.png?text=Arch+Linux+Terminal+Portfolio+Demo)
+![Arch Linux Terminal Portfolio Demo](public/demo-screenshot.png)
 
 ## ✨ Features
 
