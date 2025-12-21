@@ -17,14 +17,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const savedTheme = localStorage.getItem("portfolio-theme") as ThemeName;
     if (savedTheme) {
       setThemeState(savedTheme);
-      document.body.setAttribute("data-theme", savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
     }
   }, []);
 
   const setTheme = (newTheme: ThemeName) => {
     setThemeState(newTheme);
     localStorage.setItem("portfolio-theme", newTheme);
-    document.body.setAttribute("data-theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
   };
 
   return (

@@ -1,12 +1,20 @@
 "use client";
 
 import { useTheme } from "./ThemeProvider";
+import { themes, ThemeName } from "@/config/themes";
 
 export default function StatusBar() {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  const cycleTheme = () => {
+    const themeNames = Object.keys(themes) as ThemeName[];
+    const currentIndex = themeNames.indexOf(theme);
+    const nextIndex = (currentIndex + 1) % themeNames.length;
+    setTheme(themeNames[nextIndex]);
+  };
 
   return (
-    <footer className="w-full max-w-4xl mx-auto z-50 bg-dark-gray text-xs md:text-sm flex border border-bg-hard select-none shadow-lg rounded-lg overflow-hidden shrink-0">
+    <footer className="w-full max-w-5xl mx-auto z-50 bg-dark-gray text-xs md:text-sm flex border border-bg-hard select-none shadow-lg rounded-lg overflow-hidden shrink-0">
       <div className="bg-green text-bg-hard font-bold px-3 py-2 hidden md:flex items-center">
         NORMAL
       </div>
@@ -23,14 +31,11 @@ export default function StatusBar() {
           <button
             key={i}
             onClick={() => {
-              // We need a way to trigger command from here.
-              // Perhaps a custom event or passing a ref?
-              // For now, I'll use a custom event.
               window.dispatchEvent(
                 new CustomEvent("run-command", { detail: item.cmd }),
               );
             }}
-            className="px-4 py-2 hover:bg-bg hover:text-bright-yellow transition-colors border-r border-bg-hard"
+            className="px-4 py-2 hover:bg-bg hover:text-bright-yellow transition-colors border-r border-bg-hard cursor-pointer"
           >
             {item.label}
           </button>
@@ -40,9 +45,13 @@ export default function StatusBar() {
       <div className="bg-blue text-bg-hard px-3 py-2 font-bold hidden md:flex items-center">
         utf-8
       </div>
-      <div className="bg-yellow text-bg-hard px-3 py-2 font-bold flex items-center uppercase">
+      <button
+        onClick={cycleTheme}
+        title="Cycle Theme"
+        className="bg-yellow text-bg-hard px-3 py-2 font-bold flex items-center uppercase cursor-pointer hover:bg-bright-yellow active:opacity-80 transition-all border-none outline-none"
+      >
         {theme}
-      </div>
+      </button>
     </footer>
   );
 }

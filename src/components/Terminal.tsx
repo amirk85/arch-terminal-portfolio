@@ -46,6 +46,36 @@ export default function Terminal() {
 
   const hasBooted = useRef(false);
 
+  const COMMANDS = [
+    "help",
+    "about",
+    "experience",
+    "skills",
+    "projects",
+    "education",
+    "contact",
+    "ls",
+    "cat",
+    "neofetch",
+    "theme",
+    "clear",
+    "whoami",
+    "date",
+  ];
+
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (inputVal.trim() && !inputVal.includes(" ")) {
+      const matches = COMMANDS.filter((cmd) =>
+        cmd.startsWith(inputVal.toLowerCase()),
+      );
+      setSuggestions(matches);
+    } else {
+      setSuggestions([]);
+    }
+  }, [inputVal]);
+
   useEffect(() => {
     if (!hasBooted.current) {
       boot();
@@ -89,12 +119,18 @@ export default function Terminal() {
         }
       });
     }
-  }, [history, isBooting]);
+  }, [history, isBooting, suggestions]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       executeCommand(inputVal);
       setInputVal("");
+      setSuggestions([]);
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      if (suggestions.length > 0) {
+        setInputVal(suggestions[0]);
+      }
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       if (commandHistory.length > 0) {
@@ -128,7 +164,7 @@ export default function Terminal() {
 
   return (
     <main
-      className="max-w-4xl w-full mx-auto grow flex flex-col relative z-20 p-4 md:p-8 overflow-y-auto scrollbar-hide rounded-xl border border-bg-hard/50 shadow-2xl bg-bg/50 backdrop-blur-sm"
+      className="max-w-5xl w-full mx-auto grow flex flex-col relative z-20 p-4 md:p-8 overflow-y-auto scrollbar-hide rounded-xl border border-bg-hard/50 shadow-2xl bg-bg/50 backdrop-blur-sm"
       onClick={focusInput}
       ref={scrollRef}
     >
@@ -139,28 +175,49 @@ export default function Terminal() {
       </div>
 
       {!isBooting && (
-        <div
-          className="flex items-center flex-wrap"
-          id="input-line"
-          ref={inputLineRef}
-        >
-          <Prompt />
-          <div className="grow flex items-center relative">
-            <span className="text-fg break-all min-h-[1.2em]">{inputVal}</span>
-            <span className="cursor"></span>
-            <input
-              ref={inputRef}
-              type="text"
-              value={inputVal}
-              onChange={(e) => setInputVal(e.target.value)}
-              onKeyDown={handleKeyDown}
-              className="absolute inset-0 opacity-0 pointer-events-none"
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck="false"
-              autoFocus
-            />
+        <div className="relative">
+          {suggestions.length > 0 && (
+            <div className="absolute bottom-full left-0 mb-2 flex gap-2 flex-wrap bg-bg-hard/80 backdrop-blur-md p-2 rounded-lg border border-bg-hard z-30 shadow-xl animate-in fade-in slide-in-from-bottom-2 duration-200">
+              {suggestions.map((s) => (
+                <span
+                  key={s}
+                  onClick={() => {
+                    setInputVal(s);
+                    inputRef.current?.focus();
+                  }}
+                  className="px-2 py-0.5 rounded bg-dark-gray/50 text-bright-yellow text-xs cursor-pointer hover:bg-dark-gray transition-colors border border-transparent hover:border-gray/30"
+                >
+                  {s}
+                </span>
+              ))}
+              <span className="text-[10px] text-gray self-center ml-1 italic opacity-60">
+                [Tab to complete]
+              </span>
+            </div>
+          )}
+          <div
+            className="flex items-center flex-wrap"
+            id="input-line"
+            ref={inputLineRef}
+          >
+            <Prompt />
+            <div className="grow flex items-center relative">
+              <span className="text-fg break-all min-h-[1.2em]">{inputVal}</span>
+              <span className="cursor"></span>
+              <input
+                ref={inputRef}
+                type="text"
+                value={inputVal}
+                onChange={(e) => setInputVal(e.target.value)}
+                onKeyDown={handleKeyDown}
+                className="absolute inset-0 opacity-0 pointer-events-none"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false"
+                autoFocus
+              />
+            </div>
           </div>
         </div>
       )}

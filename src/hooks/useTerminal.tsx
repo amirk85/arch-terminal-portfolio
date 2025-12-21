@@ -360,7 +360,7 @@ export function useTerminal(setTheme: (theme: ThemeName) => void) {
               content: `Available themes: ${Object.keys(themes).join(", ")}`,
             });
           } else {
-            const themeName = args[0] as ThemeName;
+            const themeName = parts[1] as ThemeName;
             if (themes[themeName]) {
               setTheme(themeName);
               addLine({
