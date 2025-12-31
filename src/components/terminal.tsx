@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState, memo } from "react";
-import { useTerminal, OutputLine } from "@/hooks/useTerminal";
-import { useTheme } from "@/components/ThemeProvider";
-import Prompt from "./Prompt";
+import { useTerminal, OutputLine } from "@/hooks/use-terminal";
+import { useTheme } from "@/components/theme-provider";
+import Prompt from "./prompt";
 
 const TerminalLine = memo(({ line }: { line: OutputLine }) => {
   return (
@@ -202,7 +202,9 @@ export default function Terminal() {
           >
             <Prompt />
             <div className="grow flex items-center relative">
-              <span className="text-fg break-all min-h-[1.2em]">{inputVal}</span>
+              <span className="text-fg break-all min-h-[1.2em]">
+                {inputVal}
+              </span>
               <span className="cursor"></span>
               <input
                 ref={inputRef}

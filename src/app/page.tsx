@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Terminal from "@/components/Terminal";
-import StatusBar from "@/components/StatusBar";
-import { useTheme } from "@/components/ThemeProvider";
+import StatusBar from "@/components/status-bar";
+import { useTheme } from "@/components/theme-provider";
 import { themes } from "@/config/themes";
+import Terminal from "@/components/terminal";
 
 export default function Home() {
   const { theme } = useTheme();

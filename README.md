@@ -78,4 +78,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
-_Made with ❤️ by Amir for the Linux community._
+_Made with ❤️ by Amir._
